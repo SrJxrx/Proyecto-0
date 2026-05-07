@@ -23,6 +23,9 @@ def escitalaCod(texto, lineas):
 def escitalaDec(texto, lineas):
 
 def main():
+  """
+  Programa principal del Proyecto-0.
+  """
 
-
-
+if __name__ == "__main__":
+  main()
