@@ -158,6 +158,7 @@ def main():
         lineas = int(input("Ahora, introduzca las líneas:"))
         print("Gracias por introducir la palabra clave correctamente.")
         print("Ahora, su mensaje decifrado es:", escitalaDec(texto , lineas))
+      decision = int(input("Escoja un cifrado diferente o para salir digite 7: "))
   print("Gracias por utilizar el software, que tenga lindo día.")
     
                   
