@@ -34,6 +34,8 @@ def escitalaCod(texto, lineas):
 
 def escitalaDec(texto, lineas):
 
+#Programa principal  
+
 def main():
   """
   Programa principal del Proyecto-0.
@@ -48,25 +50,25 @@ def main():
   print("3. Cifrado Vigenère.")
   print("4. Cifrado Playfair modificado.")
   print("5. Cifrado Railfence.")
-  print("6. Cifrado Escitala.")
+  print("6. Cifrado Escítala.")
   print("7. Salir del sistema.")
-  decision = int(input("¿Que tipo de cifrado quiere utilizar el día de hoy?:")
+  decision = int(input("¿Que tipo de cifrado quiere utilizar el día de hoy?:"))
   if decision == 1:
     print("Gracias por escoger el cifrado Cesar.")
     print("¿Qué desea hacer ahora?") 
     print("1. Codificar un mensaje") 
     print("2. Decodificar un mensaje")
-    decision = int(input("Escoja un valor entre 1 y 2")
+    decision = int(input("Escoja un valor entre 1 y 2"))
     if decision == 1:
-      texto = str(input("Por favor, introduzca su mensaje a codificar:")
+      texto = str(input("Por favor, introduzca su mensaje a codificar:"))
       print("Gracias por introducir su mensaje correctamente.")
-      desplazamiento = int(input("Ahora, introduzca el desplazamiento:")
+      desplazamiento = int(input("Ahora, introduzca el desplazamiento:"))
       print("Gracias por introducir el desplazamiento correctamente.")
       print("Ahora, su mensaje cifrado es:", cesarCod(texto , desplazamiento))
     elif decision == 2:
-      texto = str(input("Por favor, introduzca su mensaje codificado:")
+      texto = str(input("Por favor, introduzca su mensaje codificado:"))
       print("Gracias por introducir su mensaje correctamente.")
-      desplazamiento = int(input("Ahora, introduzca el desplazamiento:")
+      desplazamiento = int(input("Ahora, introduzca el desplazamiento:"))
       print("Gracias por introducir el desplazamiento correctamente.")
       print("Ahora, su mensaje decifrado es:", cesarDec(texto , desplazamiento))
   elif decision == 2:
@@ -74,17 +76,17 @@ def main():
     print("¿Qué desea hacer ahora?") 
     print("1. Codificar un mensaje") 
     print("2. Decodificar un mensaje")
-    decision = int(input("Escoja un valor entre 1 y 2")
+    decision = int(input("Escoja un valor entre 1 y 2"))
     if decision == 1:
-      texto = str(input("Por favor, introduzca su mensaje a codificar:")
+      texto = str(input("Por favor, introduzca su mensaje a codificar:"))
       print("Gracias por introducir su mensaje correctamente.")
-      palabra = int(input("Ahora, introduzca la palabra clave:")
+      palabra = srt(input("Ahora, introduzca la palabra clave:"))
       print("Gracias por introducir la palabra clave correctamente.")
       print("Ahora, su mensaje cifrado es:", monoCod(texto , palabra))
     elif decision == 2:
-      texto = str(input("Por favor, introduzca su mensaje codificado:")
+      texto = str(input("Por favor, introduzca su mensaje codificado:"))
       print("Gracias por introducir su mensaje correctamente.")
-      desplazamiento = int(input("Ahora, introduzca la palabra clave:")
+      palabra = srt(input("Ahora, introduzca la palabra clave:"))
       print("Gracias por introducir la palabra clave correctamente.")
       print("Ahora, su mensaje decifrado es:", monoDec(texto , palabra))
   elif decision == 3:
@@ -92,19 +94,74 @@ def main():
     print("¿Qué desea hacer ahora?") 
     print("1. Codificar un mensaje") 
     print("2. Decodificar un mensaje")
-    decision = int(input("Escoja un valor entre 1 y 2")
+    decision = int(input("Escoja un valor entre 1 y 2"))
     if decision == 1:
-      texto = str(input("Por favor, introduzca su mensaje a codificar:")
+      texto = str(input("Por favor, introduzca su mensaje a codificar:"))
       print("Gracias por introducir su mensaje correctamente.")
-      palabra = int(input("Ahora, introduzca la palabra clave:")
+      palabra = srt(input("Ahora, introduzca la palabra clave:"))
       print("Gracias por introducir la palabra clave correctamente.")
       print("Ahora, su mensaje cifrado es:", vinegereCod(texto , palabra))
     elif decision == 2:
-      texto = str(input("Por favor, introduzca su mensaje codificado:")
+      texto = str(input("Por favor, introduzca su mensaje codificado:"))
       print("Gracias por introducir su mensaje correctamente.")
-      desplazamiento = int(input("Ahora, introduzca la palabra clave:")
+      palabra = str(input("Ahora, introduzca la palabra clave:"))
       print("Gracias por introducir la palabra clave correctamente.")
       print("Ahora, su mensaje decifrado es:", vinegereDec(texto , palabra))
+  elif decision == 4:
+    print("Gracias por escoger el cifrado Playfair.")
+    print("¿Qué desea hacer ahora?") 
+    print("1. Codificar un mensaje") 
+    print("2. Decodificar un mensaje")
+    decision = int(input("Escoja un valor entre 1 y 2"))
+    if decision == 1:
+      texto = str(input("Por favor, introduzca su mensaje a codificar:"))
+      print("Gracias por introducir su mensaje correctamente.")
+      palabra = str(input("Ahora, introduzca la palabra clave:"))
+      print("Gracias por introducir la palabra clave correctamente.")
+      print("Ahora, su mensaje cifrado es:", playfairCod(texto , palabra))
+    elif decision == 2:
+      texto = str(input("Por favor, introduzca su mensaje codificado:"))
+      print("Gracias por introducir su mensaje correctamente.")
+      palabra = str(input("Ahora, introduzca la palabra clave:"))
+      print("Gracias por introducir la palabra clave correctamente.")
+      print("Ahora, su mensaje decifrado es:", playfairDec(texto , palabra))
+  elif decision == 5:
+    print("Gracias por escoger el cifrado Railfence.")
+    print("¿Qué desea hacer ahora?") 
+    print("1. Codificar un mensaje") 
+    print("2. Decodificar un mensaje")
+    decision = int(input("Escoja un valor entre 1 y 2"))
+    if decision == 1:
+      texto = str(input("Por favor, introduzca su mensaje a codificar:"))
+      print("Gracias por introducir su mensaje correctamente.")
+      print("Ahora, su mensaje cifrado es:", railfenceCod(texto))
+    elif decision == 2:
+      texto = str(input("Por favor, introduzca su mensaje codificado:"))
+      print("Gracias por introducir su mensaje correctamente.")
+      print("Ahora, su mensaje decifrado es:", railfenceDec(texto))
+  elif decision == 6:
+    print("Gracias por escoger el cifrado Escítala.")
+    print("¿Qué desea hacer ahora?") 
+    print("1. Codificar un mensaje") 
+    print("2. Decodificar un mensaje")
+    decision = int(input("Escoja un valor entre 1 y 2"))
+    if decision == 1:
+      texto = str(input("Por favor, introduzca su mensaje a codificar:"))
+      print("Gracias por introducir su mensaje correctamente.")
+      lineas = int(input("Ahora, introduzca las líneas:"))
+      print("Gracias por introducir la palabra clave correctamente.")
+      print("Ahora, su mensaje cifrado es:", escitalaCod(texto , lineas))
+    elif decision == 2:
+      texto = str(input("Por favor, introduzca su mensaje codificado:")
+      print("Gracias por introducir su mensaje correctamente.")
+      lineas = int(input("Ahora, introduzca las líneas:"))
+      print("Gracias por introducir la palabra clave correctamente.")
+      print("Ahora, su mensaje decifrado es:", escitalaDec(texto , lineas))
+  elif decision == 7:
+    print("Gracias por utilizar el software, que tenga lindo día.")
+    
+                  
+                      
                            
                    
                  
