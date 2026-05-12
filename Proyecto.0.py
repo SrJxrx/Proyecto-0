@@ -13,6 +13,35 @@ def monoDec(texto,palabra):
 #Vigenere codificación y decodificación.
 
 def vigenereCod(texto,palabra):
+    abecedario = "abcdefghijklmnñopqrstuvwxyz"
+    texto = list(texto)
+    palabra = list(palabra)
+    cifrado = []
+    posicion2 = 0
+    for posicion in range (len(texto)):
+        if texto[posicion] != " ":
+            valor = texto[posicion]
+            letra1 = abecedario.find(valor)
+            if posicion2 != len(palabra):
+                valor = palabra[posicion2]
+                letra2 = abecedario.find(valor)
+                posicion2 += 1
+            else:
+                posicion2 = 0
+                valor = palabra[posicion2]
+                letra2 = abecedario.find(valor)
+                posicion2 +=1
+            suma = letra1+letra2
+            if suma < 26:
+             cifrado.insert(posicion,abecedario[suma])
+            else:
+             suma = suma % 27
+             cifrado.insert(posicion,abecedario[suma])   
+        else:
+            cifrado.insert(posicion," ")
+    delimitador = " " 
+    mensajeFinal = delimitador.join(cifrado)
+    return mensajeFinal
 
 def vigenereDec(texto,palabra):
 
