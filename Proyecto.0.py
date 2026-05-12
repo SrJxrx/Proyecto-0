@@ -213,7 +213,7 @@ def valorarRestriccionesPalabra(palabra, decisión):
     if decisión == "3":
         #Restricciones Palabra Cifrado Vigenère
     if decisión == "4":
-        if any(letra not in abecedario for letra in palabra):
+        if any(letra not in abecedario for letra in palabra.lower()):
             raise Exception("La palabra clave no puede tener números, símbolos ni espacios.")
 
 def valorarRestriccionesTexto(texto, decisión):
@@ -224,7 +224,7 @@ def valorarRestriccionesTexto(texto, decisión):
     if decisión == "3":
         #Restricciones Texto Cifrado Vigenère
     if decisión == "4":
-        if any(letra not in abecedario + "123 " for letra in texto):
+        if any(letra not in abecedario + "123 " for letra in texto.lower()):
             raise Exception("El texto no puede tener símbolos o números diferentes a 1, 2 y 3.")
     if decisión == "5":
         #Restricciones Texto Cifrado Rail Fence
@@ -328,28 +328,28 @@ def main():
                 if opción == "1":
                     if decisión == "1":
                         #Subrutina Codificación Cifrado César
-                    if decisión == "2":
+                    elif decisión == "2":
                         #Subrutina Codificación Cifrado Monoalfabético
-                    if decisión == "3":
+                    elif decisión == "3":
                         #Subrutina Codificación Cifrado Vigenère
-                    if decisión == "4":
+                    elif decisión == "4":
                         playfairCod(texto, palabra)
-                    if decisión == "5":
+                    elif decisión == "5":
                         #Subrutina Codificación Cifrado Rail Fence
-                    if decisión == "6":
+                    elif decisión == "6":
                         #Subrutina Codificación Escítala
                 if opción == "2":
                     if decisión == "1":
                         #Subrutina Decodificación Cifrado César
-                    if decisión == "2":
+                    elif decisión == "2":
                         #Subrutina Decodificación Cifrado Monoalfabético
-                    if decisión == "3":
+                    elif decisión == "3":
                         #Subrutina Decodificación Cifrado Vigenère
-                    if decisión == "4":
+                    elif decisión == "4":
                         playfairDec(texto, palabra)
-                    if decisión == "5":
+                    elif decisión == "5":
                         #Subrutina Decodificación Cifrado Rail Fence
-                    if decisión == "6":
+                    elif decisión == "6":
                         #Subrutina Decodificación Escítala
                 continuar = usarNuevamente(decisión)
             else:
