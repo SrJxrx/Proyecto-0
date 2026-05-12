@@ -72,7 +72,7 @@ def vigenereDec(texto,palabra):
             cifrado.insert(posicion," ")
     delimitador = " " 
     mensajeFinal = delimitador.join(cifrado)
-    print(mensajeFinal)
+    return mensajeFinal
 
 #Playfair codificación y decodificación.
 
