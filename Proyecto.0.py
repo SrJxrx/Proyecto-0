@@ -1,3 +1,7 @@
+#Variables globales(en el main con global)
+cifrado = ["Cifrado César", "2", "3", "Cifrado PlayFair modificado", "5", "6"]
+abecedario = ("abcdefghijklmnñopqrstuvwxyz")
+
 #Cesar codificación y decodificación.
 
 def cesarCod(texto, desplazamiento):
@@ -78,7 +82,7 @@ def vigenereDec(texto,palabra):
 
 def playfairCod(codificar, código):
     #Preparación de palabra clave
-    abecedario = ("abcdefghijklmnñopqrstuvwxyz123")
+    abecedario = "abcdefghijklmnñopqrstuvwxyz123"
     for letra in abecedario:
         if letra in código:
             abecedario = abecedario.replace(letra, "")
@@ -99,7 +103,7 @@ def playfairCod(codificar, código):
     for i in range(0, len(codificando)):
         if len(codificando[i]) % 2 != 0:
             codificando[i] += "1"
-    #Separación de cada palabra del texto a codificar en dos letras
+    #Separación de cada palabra del texto a codificar en dos letras (+ INFO TEMPORAL)
     codificación = []
     for i in range(0, len(codificando)):
         for j in range(0, len(codificando[i]), 2):
@@ -131,6 +135,7 @@ def playfairCod(codificar, código):
         for j in range(0, len(codificando[i]), 2):
             codificar += codificación.pop(0)
         codificar += " "
+    print()
     print("El texto cifrado con PlayFair es:", codificar)
 
 def playfairDec(decodificar, código):
@@ -145,7 +150,7 @@ def playfairDec(decodificar, código):
         if len(decodificar[i]) % 2 != 0:
             raise Exception("Todas las palabras del texto a decodificar deben tener una cantidad de letras par.")
     #Preparación de palabra clave
-    abecedario = ("abcdefghijklmnñopqrstuvwxyz123")
+    abecedario = "abcdefghijklmnñopqrstuvwxyz123"
     for letra in abecedario:
         if letra in código:
             abecedario = abecedario.replace(letra, "")
@@ -187,6 +192,7 @@ def playfairDec(decodificar, código):
             decodificando += decodificación.pop(0)
         decodificando += " "
     decodificando = decodificando.replace("1", "")
+    print()
     print("El texto cifrado con PlayFair es:", decodificando)
 
 #Railfence codificación y decodificación.
@@ -201,16 +207,35 @@ def escitalaCod(texto, lineas):
 
 def escitalaDec(texto, lineas):
 
-#Programa principal  
+def valorarRestriccionesPalabra(palabra, decisión):
+    if decisión == "2":
+        #Restricciones Palabra Cifrado Monoalfabético
+    if decisión == "3":
+        #Restricciones Palabra Cifrado Vigenère
+    if decisión == "4":
+        if any(letra not in abecedario for letra in palabra):
+            raise Exception("La palabra clave no puede tener números, símbolos ni espacios.")
 
-def main():
+def valorarRestriccionesTexto(texto, decisión):
+    if decisión == "1":
+        #Restricciones Texto Cifrado César
+    if decisión == "2":
+        #Restricciones Texto Cifrado Monoalfabético
+    if decisión == "3":
+        #Restricciones Texto Cifrado Vigenère
+    if decisión == "4":
+        if any(letra not in abecedario + "123 " for letra in texto):
+            raise Exception("El texto no puede tener símbolos o números diferentes a 1, 2 y 3.")
+    if decisión == "5":
+        #Restricciones Texto Cifrado Rail Fence
+    if decisión == "6":
+        #Restricciones Texto Escítala
 
 def prepararTexto(frase):
     while frase[-1] == " ":
         frase = frase[: -1]
-    abecedario = ("abcdefghijklmnñopqrstuvwxyz123 ")
-    if type(frase) != str or any(letra not in abecedario for letra in frase):
-        raise Exception("El texto no puede tener símbolos o números diferentes a 1, 2 y 3.")
+    if type(frase) != str:
+        raise Exception("El texto debe ser un string.")
     texto = ""
     for letra in frase.lower():
         if letra == " " and letra == texto[len(texto) - 1]:
@@ -224,23 +249,23 @@ def prepararTexto(frase):
     return texto
 
 def prepararPalabra(clave):
-    abecedario = ("abcdefghijklmnñopqrstuvwxyz")
-    if type(clave) != str or any(letra not in abecedario for letra in clave):
-        raise Exception("La palabra clave no puede tener números, símbolos ni espacios.")
+    if type(clave) != str:
+        raise Exception("El texto debe ser un string.")
     código = ""
     for letra in clave.lower():
         if letra not in código:
             código += letra
     return código
 
-def usarNuevamente():
+def usarNuevamente(decisión):
     """Función que le pregunta al usuario si desea utilizar de nuevo el programa. Sólo acepta "S" o "N" como respuesta.
     Entradas y restricciones:
     - Ninguna.
     Salidas:
     Retorna True si el usuario escribe "S", False si no."""
     print()
-    respuesta = input("¿Desea utilizar de nuevo el programa? (S/N) ")
+    respuesta = input(f"¿Desea utilizar de nuevo el programa?\nÚltimo tipo de cifrado utilizado:\
+ {cifrado[int(decisión) - 1]}.\nIngrese (S/N) como respuesta: ")
     respuesta = respuesta.lower()
     while respuesta not in ["s", "n"]:
         print("Respuesta inválida. Inténtelo nuevamente.")
@@ -248,139 +273,90 @@ def usarNuevamente():
         respuesta = respuesta.lower()
     return respuesta == "s"
 
-  """
-  Programa principal del Proyecto-0.
-  """
-  print("¡Buen día usuario!")
-  print("Bienvenido al sistema de codificación y decodificación.")
-  print("Aqui podrá codificar un mensaje en el cifrado que desee.")
-  print("Tambien puede decodificar un mensaje con el tipo de decifrado que desee.")
-  print("Tipos de cifrados disponibles:")
-  print("1. Cifrado Cesar.")
-  print("2. Cifrado Monoalfabético.")
-  print("3. Cifrado Vigenère.")
-  print("4. Cifrado Playfair modificado.")
-  print("5. Cifrado Railfence.")
-  print("6. Cifrado Escítala.")
-  print("7. Salir del sistema.")
-  try:
-    continuar = True
-    while continuar:
-      decision = int(input("¿Que tipo de cifrado quiere utilizar el día de hoy?:"))
-      if decision == 1:
-        print("Gracias por escoger el cifrado Cesar.")
-        print("¿Qué desea hacer ahora?") 
-        print("1. Codificar un mensaje") 
-        print("2. Decodificar un mensaje")
-        decision = int(input("Escoja un valor entre 1 y 2"))
-        if decision == 1:
-          texto = str(input("Por favor, introduzca su mensaje a codificar:"))
-          print("Gracias por introducir su mensaje correctamente.")
-          desplazamiento = int(input("Ahora, introduzca el desplazamiento:"))
-          print("Gracias por introducir el desplazamiento correctamente.")
-          print("Ahora, su mensaje cifrado es:", cesarCod(texto , desplazamiento))
-        elif decision == 2:
-          texto = str(input("Por favor, introduzca su mensaje codificado:"))
-          print("Gracias por introducir su mensaje correctamente.")
-          desplazamiento = int(input("Ahora, introduzca el desplazamiento:"))
-          print("Gracias por introducir el desplazamiento correctamente.")
-          print("Ahora, su mensaje decifrado es:", cesarDec(texto , desplazamiento))
-      elif decision == 2:
-        print("Gracias por escoger el cifrado Monoalfabético.")
-        print("¿Qué desea hacer ahora?") 
-        print("1. Codificar un mensaje") 
-        print("2. Decodificar un mensaje")
-        decision = int(input("Escoja un valor entre 1 y 2"))
-        if decision == 1:
-          texto = str(input("Por favor, introduzca su mensaje a codificar:"))
-          print("Gracias por introducir su mensaje correctamente.")
-          palabra = srt(input("Ahora, introduzca la palabra clave:"))
-          print("Gracias por introducir la palabra clave correctamente.")
-          print("Ahora, su mensaje cifrado es:", monoCod(texto , palabra))
-        elif decision == 2:
-          texto = str(input("Por favor, introduzca su mensaje codificado:"))
-          print("Gracias por introducir su mensaje correctamente.")
-          palabra = srt(input("Ahora, introduzca la palabra clave:"))
-          print("Gracias por introducir la palabra clave correctamente.")
-          print("Ahora, su mensaje decifrado es:", monoDec(texto , palabra))
-      elif decision == 3:
-        print("Gracias por escoger el cifrado Vinegère.")
-        print("¿Qué desea hacer ahora?") 
-        print("1. Codificar un mensaje") 
-        print("2. Decodificar un mensaje")
-        decision = int(input("Escoja un valor entre 1 y 2"))
-        if decision == 1:
-          texto = str(input("Por favor, introduzca su mensaje a codificar:"))
-          print("Gracias por introducir su mensaje correctamente.")
-          palabra = srt(input("Ahora, introduzca la palabra clave:"))
-          print("Gracias por introducir la palabra clave correctamente.")
-          print("Ahora, su mensaje cifrado es:", vinegereCod(texto , palabra))
-        elif decision == 2:
-          texto = str(input("Por favor, introduzca su mensaje codificado:"))
-          print("Gracias por introducir su mensaje correctamente.")
-          palabra = str(input("Ahora, introduzca la palabra clave:"))
-          print("Gracias por introducir la palabra clave correctamente.")
-          print("Ahora, su mensaje decifrado es:", vinegereDec(texto , palabra))
-      elif decision == 4:
-        print("Gracias por escoger el cifrado Playfair.")
-        print("¿Desea codificar o decodificar?")
-        print("1. Codificar.")
-        print("2. Decodificar.")
-        opción = input("Su opción: ")
-        while opción not in ("1", "2"):
-            print("Opción no válida")
-            opción = input("Su opción: ")
-        if opción == "1":
-            mensaje = "codificar"
-        if opción == "2":
-            mensaje = "decodificar"
-        print("Gracias por introducir su opción correctamente.")
-        #Texto a codificar o decodificar
-        texto = str(input(f"Ingrese el texto que desea {mensaje}: "))
-        texto = prepararTexto(texto)
-        #Palabra clave
-        palabra = str(input("ingrese el palabra clave utilizada en la codificación: "))
-        palabra = prepararPalabra(palabra)
-        if opción == "1":
-            playfairCod(texto, palabra)
-        if opción == "2":
-            playfairDec(texto, palabra)
-      elif decision == 5:
-        print("Gracias por escoger el cifrado Railfence.")
-        print("¿Qué desea hacer ahora?") 
-        print("1. Codificar un mensaje") 
-        print("2. Decodificar un mensaje")
-        decision = int(input("Escoja un valor entre 1 y 2"))
-        if decision == 1:
-          texto = str(input("Por favor, introduzca su mensaje a codificar:"))
-          print("Gracias por introducir su mensaje correctamente.")
-          print("Ahora, su mensaje cifrado es:", railfenceCod(texto))
-        elif decision == 2:
-          texto = str(input("Por favor, introduzca su mensaje codificado:"))
-          print("Gracias por introducir su mensaje correctamente.")
-          print("Ahora, su mensaje decifrado es:", railfenceDec(texto))
-      elif decision == 6:
-        print("Gracias por escoger el cifrado Escítala.")
-        print("¿Qué desea hacer ahora?") 
-        print("1. Codificar un mensaje") 
-        print("2. Decodificar un mensaje")
-        decision = int(input("Escoja un valor entre 1 y 2"))
-        if decision == 1:
-          texto = str(input("Por favor, introduzca su mensaje a codificar:"))
-          print("Gracias por introducir su mensaje correctamente.")
-          lineas = int(input("Ahora, introduzca las líneas:"))
-          print("Gracias por introducir la palabra clave correctamente.")
-          print("Ahora, su mensaje cifrado es:", escitalaCod(texto , lineas))
-        elif decision == 2:
-          texto = str(input("Por favor, introduzca su mensaje codificado:")
-          print("Gracias por introducir su mensaje correctamente.")
-          lineas = int(input("Ahora, introduzca las líneas:"))
-          print("Gracias por introducir la palabra clave correctamente.")
-          print("Ahora, su mensaje decifrado es:", escitalaDec(texto , lineas))
-        continuar = usarNuevamente()
-    print("Gracias por utilizar el software, que tenga lindo día.")
-  except Exception as e:
-    print(f"ERROR: {e}")
+def main():
+    """
+    Programa principal del Proyecto-0.
+    """
+    try:
+        global abecedario
+        global cifrado
+        print("¡Buen día usuario!")
+        print("Bienvenido al sistema de codificación y decodificación.")
+        print("Aqui podrá codificar un mensaje en el cifrado que desee.")
+        print("Tambien puede decodificar un mensaje con el tipo de decifrado que desee.")
+        print()
+        continuar = True
+        while continuar:
+            print("Tipos de cifrados disponibles:")
+            print("1. Cifrado César.")
+            print("2. Cifrado Monoalfabético.")
+            print("3. Cifrado Vigenère.")
+            print("4. Cifrado PlayFair")
+            print("5. Cifrado Rail Fence.")
+            print("6. Escítala.")
+            print("7. SALIR DEL PROGRAMA.")
+            print()
+            decisión = input("Su opción: ")
+            while decisión not in ("1" , "2", "3", "4", "5", "6", "7"):
+                print("Opción no válida")
+                decisión = input("Su opción: ")
+            if decisión != "7":
+                print()
+                print("¿Desea codificar o decodificar?")
+                print("1. Codificar.")
+                print("2. Decodificar.")
+                print()
+                opción = input("Su opción: ")
+                while opción not in ("1", "2"):
+                    print("Opción no válida")
+                    opción = input("Su opción: ")
+                if opción == "1":
+                    mensaje = "codificar"
+                    mensaje2 = "utilizará en la codificación"
+                if opción == "2":
+                    mensaje = "decodificar"
+                    mensaje2 = "utilizó en la codificación"
+                print()
+                texto = input(f"Ingrese el texto que desea {mensaje}: ")
+                valorarRestriccionesTexto(texto, decisión)
+                texto = prepararTexto(texto)
+                if decisión in ("2", "3", "4"):
+                    print()
+                    palabra = input(f"ingrese el palabra clave que se {mensaje2}: ")
+                    valorarRestriccionesPalabra(palabra, decisión)
+                    palabra = prepararPalabra(palabra)
+                if opción == "1":
+                    if decisión == "1":
+                        #Subrutina Codificación Cifrado César
+                    if decisión == "2":
+                        #Subrutina Codificación Cifrado Monoalfabético
+                    if decisión == "3":
+                        #Subrutina Codificación Cifrado Vigenère
+                    if decisión == "4":
+                        playfairCod(texto, palabra)
+                    if decisión == "5":
+                        #Subrutina Codificación Cifrado Rail Fence
+                    if decisión == "6":
+                        #Subrutina Codificación Escítala
+                if opción == "2":
+                    if decisión == "1":
+                        #Subrutina Decodificación Cifrado César
+                    if decisión == "2":
+                        #Subrutina Decodificación Cifrado Monoalfabético
+                    if decisión == "3":
+                        #Subrutina Decodificación Cifrado Vigenère
+                    if decisión == "4":
+                        playfairDec(texto, palabra)
+                    if decisión == "5":
+                        #Subrutina Decodificación Cifrado Rail Fence
+                    if decisión == "6":
+                        #Subrutina Decodificación Escítala
+                continuar = usarNuevamente(decisión)
+            else:
+                continuar = False
+        print("Gracias por utilizar este programa :)")
+    except Exception as e:
+            print(f"ERROR: {e}")
 
 if __name__ == "__main__":
   main()
