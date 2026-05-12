@@ -44,6 +44,35 @@ def vigenereCod(texto,palabra):
     return mensajeFinal
 
 def vigenereDec(texto,palabra):
+    abecedario = "abcdefghijklmnñopqrstuvwxyz"
+    texto = list(texto)
+    palabra = list(palabra)
+    cifrado = []
+    posicion2 = 0
+    for posicion in range (len(texto)):
+        if texto[posicion] != " ":
+            valor = texto[posicion]
+            letra1 = abecedario.find(valor)
+            if posicion2 != len(palabra):
+                valor = palabra[posicion2]
+                letra2 = abecedario.find(valor)
+                posicion2 += 1
+            else:
+                posicion2 = 0
+                valor = palabra[posicion2]
+                letra2 = abecedario.find(valor)
+                posicion2 +=1
+            resta = letra1-letra2
+            if resta > 0:
+             cifrado.insert(posicion,abecedario[resta])
+            else:
+             resta = resta % 27
+             cifrado.insert(posicion,abecedario[resta])   
+        else:
+            cifrado.insert(posicion," ")
+    delimitador = " " 
+    mensajeFinal = delimitador.join(cifrado)
+    print(mensajeFinal)
 
 #Playfair codificación y decodificación.
 
