@@ -13,7 +13,7 @@ def cesarCod(codificar, movimiento):
         else:
             codificando += letra
     print()
-    print("El texto codificado es:", codificando)
+    print("El texto cifrado es:", codificando)
 
 def cesarDec(decodificar, movimiento):
     decodificando = ""
@@ -24,7 +24,7 @@ def cesarDec(decodificar, movimiento):
         else:
             decodificando += letra
     print()
-    print("El texto decodificado es:", decodificando)
+    print("El texto descifrado es:", decodificando)
 
 #Monoalfabetico codificación y decodificación.
 
@@ -47,12 +47,30 @@ abecedario = "abcdefghijklmnñopqrstuvwxyz"
             letra_cifrada = abecedario_cifrado[posicion]
             texto_cifrado += letra_cifrada
 
-    print("El mensaje encriptado es: " + texto_cifrado)
+    print("El mensaje cifrado es: " + texto_cifrado)
 
 
 
 def monoDec(texto,palabra):
+ abecedario = "abcdefghijklmnñopqrstuvwxyz"
+        abecedario_cifrado = ""
+        texto_descifrado = ""
+        for letra in palabra:
+            if letra not in abecedario_cifrado:
+                abecedario_cifrado+=letra
+        for letra in abecedario:
+            if letra not in abecedario_cifrado:
+                abecedario_cifrado+=letra
+                     
+        for letra in texto:
+            if letra == " ":
+                texto_descifrado+= " "
+            else:    
+                posicion = abecedario_cifrado.index(letra)
+                letra_descifrada = abecedario[posicion]
+                texto_descifrado += letra_descifrada
 
+    print("El mensaje descifrado es: " + texto_descifrado)
 #Vigenere codificación y decodificación.
 
 def vigenereCod(texto,palabra):
@@ -84,7 +102,7 @@ def vigenereCod(texto,palabra):
             cifrado.insert(posicion," ")
     delimitador = " " 
     mensajeFinal = delimitador.join(cifrado)
-    print("El mensaje encriptado es: ",mensajeFinal)
+    print("El mensaje cifrado es: ",mensajeFinal)
 
 def vigenereDec(texto,palabra):
     abecedario = "abcdefghijklmnñopqrstuvwxyz"
@@ -115,7 +133,7 @@ def vigenereDec(texto,palabra):
             cifrado.insert(posicion," ")
     delimitador = " " 
     mensajeFinal = delimitador.join(cifrado)
-    print("El mensaje desencriptado es: ",mensajeFinal)
+    print("El mensaje descifrado es: ",mensajeFinal)
 
 #Playfair codificación y decodificación.
 
