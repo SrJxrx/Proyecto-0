@@ -318,29 +318,16 @@ def escitalaDec(texto,vueltas):
         print("El mensaje no puede descodificarse.")
 
 def valorarRestriccionesPalabra(palabra, decisión):
-    if decisión == "2":
-        #Restricciones Palabra Cifrado Monoalfabético
-    if decisión == "3":
-        #Restricciones Palabra Cifrado Vigenère
-    if decisión == "4":
-        if any(letra not in abecedario for letra in palabra):
-            raise Exception("La palabra clave no puede tener números, símbolos ni espacios.")
+    if any(letra not in abecedario for letra in palabra):
+        raise Exception("La palabra clave no puede tener números, símbolos ni espacios.")
 
 def valorarRestriccionesTexto(texto, decisión):
-    if decisión == "1":
-        if any(letra not in abecedario for letra in texto):
-            raise Exception("El texto no puede tener símbolos ni números")
-    if decisión == "2":
-        #Restricciones Texto Cifrado Monoalfabético
-    if decisión == "3":
-        #Restricciones Texto Cifrado Vigenère
     if decisión == "4":
         if any(letra not in abecedario + "123 " for letra in texto):
             raise Exception("El texto no puede tener símbolos o números diferentes a 1, 2 y 3.")
-    if decisión == "5":
-        #Restricciones Texto Cifrado Rail Fence
-    if decisión == "6":
-        #Restricciones Texto Escítala
+    else:
+        if any(letra not in abecedario for letra in texto):
+            raise Exception("El texto no puede tener símbolos ni números")
 
 def prepararTexto(frase):
     while frase[-1] == " ":
@@ -454,7 +441,7 @@ def main():
                     if decisión == "5":
                         railfenceCod(texto):
                     if decisión == "6":
-                        #Subrutina Codificación Escítala
+                        escitalaCod(texto,vueltas)
                 if opción == "2":
                     if decisión == "1":
                         #Subrutina Decodificación Cifrado César
@@ -466,9 +453,9 @@ def main():
                     if decisión == "4":
                         playfairDec(texto, palabra)
                     if decisión == "5":
-                       railfenceDec(texto):
+                        railfenceDec(texto):
                     if decisión == "6":
-                        #Subrutina Decodificación Escítala
+                        escitalaDec(texto,vueltas)
                 continuar = usarNuevamente(decisión)
             else:
                 continuar = False
