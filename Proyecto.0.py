@@ -29,6 +29,27 @@ def cesarDec(decodificar, movimiento):
 #Monoalfabetico codificación y decodificación.
 
 def monoCod(texto,palabra):
+abecedario = "abcdefghijklmnñopqrstuvwxyz"
+    abecedario_cifrado = ""
+    texto_cifrado = ""
+    for letra in palabra:
+        if letra not in abecedario_cifrado:
+            abecedario_cifrado+=letra
+    for letra in abecedario:
+        if letra not in abecedario_cifrado:
+            abecedario_cifrado+=letra
+                 
+    for letra in texto:
+        if letra == " ":
+            texto_cifrado+= " "
+        else:    
+            posicion = abecedario.index(letra)
+            letra_cifrada = abecedario_cifrado[posicion]
+            texto_cifrado += letra_cifrada
+
+    print("El mensaje encriptado es: " + texto_cifrado)
+
+
 
 def monoDec(texto,palabra):
 
@@ -348,9 +369,9 @@ def main():
                         #Subrutina Codificación Cifrado César
                         cesarCod(texto, desplazamiento)
                     if decisión == "2":
-                        #Subrutina Codificación Cifrado Monoalfabético
+                       monoCod(texto,palabra)
                     if decisión == "3":
-                        #Subrutina Codificación Cifrado Vigenère
+                        monoDec(texto,palabra)
                     if decisión == "4":
                         playfairCod(texto, palabra)
                     if decisión == "5":
