@@ -139,12 +139,6 @@ def playfairCod(codificar, código):
     print("El texto cifrado con PlayFair es:", codificar)
 
 def playfairDec(decodificar, código):
-    #Restricciones
-    verificar = ""
-    for letra in decodificar:
-        if letra == verificar:
-            raise Exception("El texto a decodificar no puede tener dos letras iguales seguidas.")
-        verificar = letra
     decodificar = decodificar.split(" ")
     for i in range(0, len(decodificar)):
         if len(decodificar[i]) % 2 != 0:
@@ -213,7 +207,7 @@ def valorarRestriccionesPalabra(palabra, decisión):
     if decisión == "3":
         #Restricciones Palabra Cifrado Vigenère
     if decisión == "4":
-        if any(letra not in abecedario for letra in palabra.lower()):
+        if any(letra not in abecedario for letra in palabra):
             raise Exception("La palabra clave no puede tener números, símbolos ni espacios.")
 
 def valorarRestriccionesTexto(texto, decisión):
@@ -224,7 +218,7 @@ def valorarRestriccionesTexto(texto, decisión):
     if decisión == "3":
         #Restricciones Texto Cifrado Vigenère
     if decisión == "4":
-        if any(letra not in abecedario + "123 " for letra in texto.lower()):
+        if any(letra not in abecedario + "123 " for letra in texto):
             raise Exception("El texto no puede tener símbolos o números diferentes a 1, 2 y 3.")
     if decisión == "5":
         #Restricciones Texto Cifrado Rail Fence
@@ -318,42 +312,46 @@ def main():
                     mensaje2 = "utilizó en la codificación"
                 print()
                 texto = input(f"Ingrese el texto que desea {mensaje}: ")
-                valorarRestriccionesTexto(texto, decisión)
                 texto = prepararTexto(texto)
+                valorarRestriccionesTexto(texto, decisión)
                 if decisión in ("2", "3", "4"):
                     print()
                     palabra = input(f"ingrese el palabra clave que se {mensaje2}: ")
-                    valorarRestriccionesPalabra(palabra, decisión)
                     palabra = prepararPalabra(palabra)
+                    valorarRestriccionesPalabra(palabra, decisión)
+                if decisión == "1":
+                    desplazamineto = int(input("Ingrese la cantidad de posiciones del desplazamiento"))
+                    cesarCod(texto, desplazamiento)
                 if opción == "1":
                     if decisión == "1":
                         #Subrutina Codificación Cifrado César
-                    elif decisión == "2":
+                    if decisión == "2":
                         #Subrutina Codificación Cifrado Monoalfabético
-                    elif decisión == "3":
+                    if decisión == "3":
                         #Subrutina Codificación Cifrado Vigenère
-                    elif decisión == "4":
+                    if decisión == "4":
                         playfairCod(texto, palabra)
-                    elif decisión == "5":
+                    if decisión == "5":
                         #Subrutina Codificación Cifrado Rail Fence
-                    elif decisión == "6":
+                    if decisión == "6":
                         #Subrutina Codificación Escítala
                 if opción == "2":
                     if decisión == "1":
                         #Subrutina Decodificación Cifrado César
-                    elif decisión == "2":
+                    if decisión == "2":
                         #Subrutina Decodificación Cifrado Monoalfabético
-                    elif decisión == "3":
+                    if decisión == "3":
                         #Subrutina Decodificación Cifrado Vigenère
-                    elif decisión == "4":
+                    if decisión == "4":
                         playfairDec(texto, palabra)
-                    elif decisión == "5":
+                    if decisión == "5":
                         #Subrutina Decodificación Cifrado Rail Fence
-                    elif decisión == "6":
+                    if decisión == "6":
                         #Subrutina Decodificación Escítala
                 continuar = usarNuevamente(decisión)
             else:
                 continuar = False
+        print()
         print("Gracias por utilizar este programa :)")
     except Exception as e:
             print(f"ERROR: {e}")
