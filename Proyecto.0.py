@@ -268,7 +268,26 @@ def escitalaCod(texto,vueltas):
     mensajeFinal = delimitador.join(matriz)
     print("El mensaje encriptado es:", mensajeFinal)
 
-def escitalaDec(texto, lineas):
+def escitalaDec(texto,vueltas):
+    texto = texto.replace(" ","")
+    matriz= []
+    mensajeFinal = []
+    delimitador =""
+    c = 0
+    d = len(texto)//vueltas
+    if len(texto)% vueltas == 0:
+        for i in range(vueltas):
+            matriz.append(texto[c:d])
+            c = d
+            d = d+len(texto)//vueltas
+        for i in range(len(matriz[0])):
+            for c in range(vueltas):
+                mensajeFinal.append(matriz[c][i])
+        mensajeFinal = delimitador.join(mensajeFinal)
+        mensajeFinal = mensajeFinal.replace("-"," ")       
+        print("El mensaje desencriptado es:", mensajeFinal)
+    else:
+        print("El mensaje no puede descodificarse.")
 
 def valorarRestriccionesPalabra(palabra, decisión):
     if decisión == "2":
