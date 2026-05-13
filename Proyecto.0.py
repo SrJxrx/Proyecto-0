@@ -45,7 +45,7 @@ def vigenereCod(texto,palabra):
             cifrado.insert(posicion," ")
     delimitador = " " 
     mensajeFinal = delimitador.join(cifrado)
-    return mensajeFinal
+    print("El mensaje encriptado es: "mensajeFinal)
 
 def vigenereDec(texto,palabra):
     abecedario = "abcdefghijklmnñopqrstuvwxyz"
@@ -76,7 +76,7 @@ def vigenereDec(texto,palabra):
             cifrado.insert(posicion," ")
     delimitador = " " 
     mensajeFinal = delimitador.join(cifrado)
-    return mensajeFinal
+    print("El mensaje desencriptado es: "mensajeFinal)
 
 #Playfair codificación y decodificación.
 
