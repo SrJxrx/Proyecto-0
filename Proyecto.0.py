@@ -100,7 +100,7 @@ def vigenereCod(texto,palabra):
              cifrado.insert(posicion,abecedario[suma])   
         else:
             cifrado.insert(posicion," ")
-    delimitador = " " 
+    delimitador = "" 
     mensajeFinal = delimitador.join(cifrado)
     print("El mensaje cifrado es: ",mensajeFinal)
 
@@ -131,7 +131,7 @@ def vigenereDec(texto,palabra):
              cifrado.insert(posicion,abecedario[resta])   
         else:
             cifrado.insert(posicion," ")
-    delimitador = " " 
+    delimitador = "" 
     mensajeFinal = delimitador.join(cifrado)
     print("El mensaje descifrado es: ",mensajeFinal)
 
