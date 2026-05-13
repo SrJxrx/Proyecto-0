@@ -274,6 +274,7 @@ def railfenceCod(texto):
     print(cifrado_completo)
     
 def railfenceDec(texto):
+    print()
 
 #Escitala codificación y decodificación.
 
@@ -321,27 +322,30 @@ def valorarRestriccionesTexto(texto, decisión):
         if any(letra not in abecedario + "123 " for letra in texto):
             raise Exception("El texto no puede tener símbolos o números diferentes a 1, 2 y 3.")
     if decisión == "5":
-        if any(letra not in abecedario + "- " for letra in texto):
+        if any(letra not in abecedario + "ABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ- " for letra in texto):
             raise Exception("El texto no puede tener símbolos ni números")
     else:
         if any(letra not in abecedario + " " for letra in texto):
             raise Exception("El texto no puede tener símbolos ni números")
 
-def prepararTexto(frase):
-    while frase[-1] == " ":
-        frase = frase[: -1]
-    if type(frase) != str:
-        raise Exception("El texto debe ser un string.")
-    texto = ""
-    for letra in frase.lower():
-        if letra == " " and letra == texto[len(texto) - 1]:
-            texto = texto[: -1]
-        texto += letra
-    texto = texto.replace("á", "a")
-    texto = texto.replace("é", "e")
-    texto = texto.replace("í", "i")
-    texto = texto.replace("ó", "o")
-    texto = texto.replace("ú", "u")
+def prepararTexto(frase, decisión):
+    if decisión != "5":
+        while frase[-1] == " ":
+            frase = frase[: -1]
+        if type(frase) != str:
+            raise Exception("El texto debe ser un string.")
+        texto = ""
+        for letra in frase.lower():
+            if letra == " " and letra == texto[len(texto) - 1]:
+                texto = texto[: -1]
+            texto += letra
+        texto = texto.replace("á", "a")
+        texto = texto.replace("é", "e")
+        texto = texto.replace("í", "i")
+        texto = texto.replace("ó", "o")
+        texto = texto.replace("ú", "u")
+    else:
+        texto = frase
     return texto
 
 def prepararPalabra(clave):
@@ -414,7 +418,7 @@ def main():
                     mensaje2 = "utilizó en la codificación"
                 print()
                 texto = input(f"Ingrese el texto que desea {mensaje}: ")
-                texto = prepararTexto(texto)
+                texto = prepararTexto(texto, decisión)
                 valorarRestriccionesTexto(texto, decisión)
                 if decisión in ("2", "3", "4"):
                     print()
@@ -464,4 +468,3 @@ def main():
 
 if __name__ == "__main__":
   main()
-
