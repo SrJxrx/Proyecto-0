@@ -249,7 +249,35 @@ def playfairDec(decodificar, código):
 #Railfence codificación y decodificación.
 
 def railfenceCod(texto):
+    arriba = ""
+    medio = ""
+    abajo = ""
+    
+    while len(texto) % 4 != 0:
+        texto += " "
+    texto = texto.replace(" ", "-")
+    for posicion, letra in enumerate(texto):
+        posicion_cifrada = posicion % 4
 
+        if posicion_cifrada == 0:
+            arriba += letra
+        elif posicion_cifrada == 1 or posicion_cifrada == 3:
+            medio += letra
+        elif posicion_cifrada == 2:
+            abajo += letra
+            
+    texto_cifrado = arriba + medio + abajo
+
+    cifrado_completo = ""
+    for posicion, letra in enumerate(texto_cifrado):
+        cifrado_completo += letra
+        if (posicion + 1) % 5 == 0:
+            cifrado_completo += " "
+    while cifrado_completo[-1] == " ":
+        cifrado_completo = cifrado_completo[: -1]
+        
+    print(cifrado_completo)
+    
 def railfenceDec(texto):
 
 #Escitala codificación y decodificación.
@@ -424,7 +452,7 @@ def main():
                     if decisión == "4":
                         playfairCod(texto, palabra)
                     if decisión == "5":
-                        #Subrutina Codificación Cifrado Rail Fence
+                        railfenceCod(texto):
                     if decisión == "6":
                         #Subrutina Codificación Escítala
                 if opción == "2":
@@ -438,7 +466,7 @@ def main():
                     if decisión == "4":
                         playfairDec(texto, palabra)
                     if decisión == "5":
-                        #Subrutina Decodificación Cifrado Rail Fence
+                       railfenceDec(texto):
                     if decisión == "6":
                         #Subrutina Decodificación Escítala
                 continuar = usarNuevamente(decisión)
