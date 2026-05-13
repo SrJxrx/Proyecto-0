@@ -418,9 +418,9 @@ def main():
                         #Subrutina Codificación Cifrado César
                         cesarCod(texto, desplazamiento)
                     if decisión == "2":
-                       monoCod(texto,palabra)
+                        monoCod(texto,palabra)
                     if decisión == "3":
-                        monoDec(texto,palabra)
+                        vigenereCod(texto,palabra)
                     if decisión == "4":
                         playfairCod(texto, palabra)
                     if decisión == "5":
@@ -432,9 +432,9 @@ def main():
                         #Subrutina Decodificación Cifrado César
                         cesarDec(texto, desplazamiento)
                     if decisión == "2":
-                        #Subrutina Decodificación Cifrado Monoalfabético
+                        monoDec(texto,palabra)
                     if decisión == "3":
-                        #Subrutina Decodificación Cifrado Vigenère
+                        vigenereDec(texto,palabra)
                     if decisión == "4":
                         playfairDec(texto, palabra)
                     if decisión == "5":
