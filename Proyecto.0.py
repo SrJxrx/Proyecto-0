@@ -430,6 +430,11 @@ def main():
                         desplazamiento = int(input("Ingrese la cantidad de posiciones del desplazamiento: "))
                     except ValueError:
                         raise Exception("El valor del desplazamiento debe ser un número entero.")
+                if decisión == "6":
+                    try:
+                        vueltas = int(input("Ingrese la cantidad de vueltas: "))
+                    except ValueError:
+                        raise Exception("El valor de las vueltas debe ser un número entero.")
                 if opción == "1":
                     if decisión == "1":
                         #Subrutina Codificación Cifrado César
