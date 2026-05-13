@@ -320,7 +320,7 @@ def main():
                     palabra = prepararPalabra(palabra)
                     valorarRestriccionesPalabra(palabra, decisión)
                 if decisión == "1":
-                    desplazamineto = int(input("Ingrese la cantidad de posiciones del desplazamiento"))
+                    desplazamineto = int(input("Ingrese la cantidad de posiciones del desplazamiento: "))
                     cesarCod(texto, desplazamiento)
                 if opción == "1":
                     if decisión == "1":
