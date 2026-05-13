@@ -29,7 +29,7 @@ def cesarDec(decodificar, movimiento):
 #Monoalfabetico codificación y decodificación.
 
 def monoCod(texto,palabra):
-abecedario = "abcdefghijklmnñopqrstuvwxyz"
+    abecedario = "abcdefghijklmnñopqrstuvwxyz"
     abecedario_cifrado = ""
     texto_cifrado = ""
     for letra in palabra:
@@ -52,23 +52,23 @@ abecedario = "abcdefghijklmnñopqrstuvwxyz"
 
 
 def monoDec(texto,palabra):
- abecedario = "abcdefghijklmnñopqrstuvwxyz"
-        abecedario_cifrado = ""
-        texto_descifrado = ""
-        for letra in palabra:
-            if letra not in abecedario_cifrado:
-                abecedario_cifrado+=letra
-        for letra in abecedario:
-            if letra not in abecedario_cifrado:
-                abecedario_cifrado+=letra
+    abecedario = "abcdefghijklmnñopqrstuvwxyz"
+    abecedario_cifrado = ""
+    texto_descifrado = ""
+    for letra in palabra:
+        if letra not in abecedario_cifrado:
+            abecedario_cifrado+=letra
+    for letra in abecedario:
+        if letra not in abecedario_cifrado:
+            abecedario_cifrado+=letra
                      
-        for letra in texto:
-            if letra == " ":
-                texto_descifrado+= " "
-            else:    
-                posicion = abecedario_cifrado.index(letra)
-                letra_descifrada = abecedario[posicion]
-                texto_descifrado += letra_descifrada
+    for letra in texto:
+        if letra == " ":
+            texto_descifrado+= " "
+        else:
+            posicion = abecedario_cifrado.index(letra)
+            letra_descifrada = abecedario[posicion]
+            texto_descifrado += letra_descifrada
 
     print("El mensaje descifrado es: " + texto_descifrado)
 #Vigenere codificación y decodificación.
@@ -420,3 +420,4 @@ def main():
 
 if __name__ == "__main__":
   main()
+
