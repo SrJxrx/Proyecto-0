@@ -4,9 +4,27 @@ abecedario = ("abcdefghijklmnñopqrstuvwxyz")
 
 #Cesar codificación y decodificación.
 
-def cesarCod(texto, desplazamiento):
+def cesarCod(codificar, movimiento):
+    codificando = ""
+    for letra in codificar:
+        if letra != " ":
+            índice = (abecedario.find(letra) + movimiento) % len(abecedario)
+            codificando += abecedario[índice]
+        else:
+            codificando += letra
+    print()
+    print("El texto codificado es:", codificando)
 
-def cesarDec(texto, desplazamiento):
+def cesarDec(decodificar, movimiento):
+    decodificando = ""
+    for letra in decodificar:
+        if letra != " ":
+            índice = (abecedario.find(letra) - movimiento) % len(abecedario)
+            decodificando += abecedario[índice]
+        else:
+            decodificando += letra
+    print()
+    print("El texto decodificado es:", decodificando)
 
 #Monoalfabetico codificación y decodificación.
 
@@ -212,7 +230,8 @@ def valorarRestriccionesPalabra(palabra, decisión):
 
 def valorarRestriccionesTexto(texto, decisión):
     if decisión == "1":
-        #Restricciones Texto Cifrado César
+        if any(letra not in abecedario for letra in texto):
+            raise Exception("El texto no puede tener símbolos ni números")
     if decisión == "2":
         #Restricciones Texto Cifrado Monoalfabético
     if decisión == "3":
@@ -278,9 +297,9 @@ def main():
         print("Bienvenido al sistema de codificación y decodificación.")
         print("Aqui podrá codificar un mensaje en el cifrado que desee.")
         print("Tambien puede decodificar un mensaje con el tipo de decifrado que desee.")
-        print()
         continuar = True
         while continuar:
+            print()
             print("Tipos de cifrados disponibles:")
             print("1. Cifrado César.")
             print("2. Cifrado Monoalfabético.")
@@ -320,11 +339,14 @@ def main():
                     palabra = prepararPalabra(palabra)
                     valorarRestriccionesPalabra(palabra, decisión)
                 if decisión == "1":
-                    desplazamineto = int(input("Ingrese la cantidad de posiciones del desplazamiento: "))
-                    cesarCod(texto, desplazamiento)
+                    try:
+                        desplazamiento = int(input("Ingrese la cantidad de posiciones del desplazamiento: "))
+                    except ValueError:
+                        raise Exception("El valor del desplazamiento debe ser un número entero.")
                 if opción == "1":
                     if decisión == "1":
                         #Subrutina Codificación Cifrado César
+                        cesarCod(texto, desplazamiento)
                     if decisión == "2":
                         #Subrutina Codificación Cifrado Monoalfabético
                     if decisión == "3":
@@ -338,6 +360,7 @@ def main():
                 if opción == "2":
                     if decisión == "1":
                         #Subrutina Decodificación Cifrado César
+                        cesarDec(texto, desplazamiento)
                     if decisión == "2":
                         #Subrutina Decodificación Cifrado Monoalfabético
                     if decisión == "3":
