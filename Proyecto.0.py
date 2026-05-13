@@ -434,7 +434,7 @@ def main():
                     if decisión == "4":
                         playfairCod(texto, palabra)
                     if decisión == "5":
-                        railfenceCod(texto):
+                        railfenceCod(texto)
                     if decisión == "6":
                         escitalaCod(texto,vueltas)
                 if opción == "2":
@@ -448,7 +448,7 @@ def main():
                     if decisión == "4":
                         playfairDec(texto, palabra)
                     if decisión == "5":
-                        railfenceDec(texto):
+                        railfenceDec(texto)
                     if decisión == "6":
                         escitalaDec(texto,vueltas)
                 continuar = usarNuevamente(decisión)
