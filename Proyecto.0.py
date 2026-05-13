@@ -1,5 +1,5 @@
 #Variables globales(en el main con global)
-cifrado = ["Cifrado César", "2", "3", "Cifrado PlayFair modificado", "5", "6"]
+cifrado = ["Cifrado César", "Cifrado Monoalfabético", "Cifrado Vigenère", "Cifrado PlayFair modificado", "Cifrado Rail Fence", "Escítala"]
 abecedario = ("abcdefghijklmnñopqrstuvwxyz")
 
 #Cesar codificación y decodificación.
