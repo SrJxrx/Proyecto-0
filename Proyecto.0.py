@@ -320,6 +320,9 @@ def valorarRestriccionesTexto(texto, decisión):
     if decisión == "4":
         if any(letra not in abecedario + "123 " for letra in texto):
             raise Exception("El texto no puede tener símbolos o números diferentes a 1, 2 y 3.")
+    if decisión == "5":
+        if any(letra not in abecedario + "- " for letra in texto):
+            raise Exception("El texto no puede tener símbolos ni números")
     else:
         if any(letra not in abecedario + " " for letra in texto):
             raise Exception("El texto no puede tener símbolos ni números")
