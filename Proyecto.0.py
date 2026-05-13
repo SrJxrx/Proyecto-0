@@ -376,7 +376,7 @@ def main():
         print("¡Buen día usuario!")
         print("Bienvenido al sistema de codificación y decodificación.")
         print("Aqui podrá codificar un mensaje en el cifrado que desee.")
-        print("Tambien puede decodificar un mensaje con el tipo de decifrado que desee.")
+        print("Tambien puede decodificar un mensaje con el tipo de decifrado correspondiente.")
         continuar = True
         while continuar:
             print()
