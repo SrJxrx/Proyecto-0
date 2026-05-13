@@ -254,7 +254,19 @@ def railfenceDec(texto):
 
 #Escitala codificación y decodificación.
 
-def escitalaCod(texto, lineas):
+def escitalaCod(texto,vueltas):
+    texto = texto.replace(" ","-")
+    while len(texto) % vueltas != 0:
+        texto = texto +"-"
+    print(texto)
+    matriz = []
+    delimitador = ""
+    for i in range(vueltas):
+        texto1 = list(texto[i::vueltas])
+        pedazos = delimitador.join(texto1)
+        matriz.append(pedazos)
+    mensajeFinal = delimitador.join(matriz)
+    print("El mensaje encriptado es:", mensajeFinal)
 
 def escitalaDec(texto, lineas):
 
