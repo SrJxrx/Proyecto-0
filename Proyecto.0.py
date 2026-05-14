@@ -1,6 +1,8 @@
+#Enviar usuario/perfil de GitHub a maviles@itcr.cr
+
 #Variables globales(en el main con global)
 cifrado = ["Cifrado César", "Cifrado Monoalfabético", "Cifrado Vigenère", "Cifrado PlayFair modificado", "Cifrado Rail Fence", "Escítala"]
-abecedario = ("abcdefghijklmnñopqrstuvwxyz")
+abecedario = "abcdefghijklmnñopqrstuvwxyz"
 
 #Cesar codificación y decodificación.
 
@@ -13,7 +15,7 @@ def cesarCod(codificar, movimiento):
         else:
             codificando += letra
     print()
-    print("El texto cifrado es:", codificando)
+    print("El texto codificado con Cifrado César es:", codificando)
 
 def cesarDec(decodificar, movimiento):
     decodificando = ""
@@ -24,12 +26,11 @@ def cesarDec(decodificar, movimiento):
         else:
             decodificando += letra
     print()
-    print("El texto descifrado es:", decodificando)
+    print("El texto decodificado con Cifrado César es:", decodificando)
 
 #Monoalfabetico codificación y decodificación.
 
-def monoCod(texto,palabra):
-    abecedario = "abcdefghijklmnñopqrstuvwxyz"
+def monoCod(texto, palabra):
     abecedario_cifrado = ""
     texto_cifrado = ""
     for letra in palabra:
@@ -46,13 +47,9 @@ def monoCod(texto,palabra):
             posicion = abecedario.index(letra)
             letra_cifrada = abecedario_cifrado[posicion]
             texto_cifrado += letra_cifrada
+    print("El texto codificado con Cifrado Monoalfabético es: " + texto_cifrado)
 
-    print("El mensaje cifrado es: " + texto_cifrado)
-
-
-
-def monoDec(texto,palabra):
-    abecedario = "abcdefghijklmnñopqrstuvwxyz"
+def monoDec(texto, palabra):
     abecedario_cifrado = ""
     texto_descifrado = ""
     for letra in palabra:
@@ -69,12 +66,11 @@ def monoDec(texto,palabra):
             posicion = abecedario_cifrado.index(letra)
             letra_descifrada = abecedario[posicion]
             texto_descifrado += letra_descifrada
+    print("El texto decodificado con Cifrado Monoalfabético es: " + texto_descifrado)
 
-    print("El mensaje descifrado es: " + texto_descifrado)
 #Vigenere codificación y decodificación.
 
 def vigenereCod(texto,palabra):
-    abecedario = "abcdefghijklmnñopqrstuvwxyz"
     texto = list(texto)
     palabra = list(palabra)
     cifrado = []
@@ -102,10 +98,9 @@ def vigenereCod(texto,palabra):
             cifrado.insert(posicion," ")
     delimitador = "" 
     mensajeFinal = delimitador.join(cifrado)
-    print("El mensaje cifrado es: ",mensajeFinal)
+    print("El texto codificado con Cifrado Vigenère es:",mensajeFinal)
 
 def vigenereDec(texto,palabra):
-    abecedario = "abcdefghijklmnñopqrstuvwxyz"
     texto = list(texto)
     palabra = list(palabra)
     cifrado = []
@@ -133,7 +128,7 @@ def vigenereDec(texto,palabra):
             cifrado.insert(posicion," ")
     delimitador = "" 
     mensajeFinal = delimitador.join(cifrado)
-    print("El mensaje descifrado es: ",mensajeFinal)
+    print("El texto decodificado con Cifrado Vigenère es:",mensajeFinal)
 
 #Playfair codificación y decodificación.
 
@@ -193,7 +188,7 @@ def playfairCod(codificar, código):
             codificar += codificación.pop(0)
         codificar += " "
     print()
-    print("El texto cifrado con PlayFair es:", codificar)
+    print("El texto codificado con Cifrado PlayFair es:", codificar)
 
 def playfairDec(decodificar, código):
     decodificar = decodificar.split(" ")
@@ -244,7 +239,7 @@ def playfairDec(decodificar, código):
         decodificando += " "
     decodificando = decodificando.replace("1", "")
     print()
-    print("El texto cifrado con PlayFair es:", decodificando)
+    print("El texto decodificado con Cifrado PlayFair es:", decodificando)
 
 #Railfence codificación y decodificación.
 
@@ -271,18 +266,17 @@ def railfenceCod(texto):
             cifrado_completo += " "
     while cifrado_completo[-1] == " ":
         cifrado_completo = cifrado_completo[: -1]
-    print(cifrado_completo)
+    print("El texto codificado con Cifrado RailFence es:", cifrado_completo)
     
 def railfenceDec(texto):
     print()
 
 #Escitala codificación y decodificación.
 
-def escitalaCod(texto,vueltas):
+def escitalaCod(texto, vueltas):
     texto = texto.replace(" ","-")
     while len(texto) % vueltas != 0:
         texto = texto +"-"
-    print(texto)
     matriz = []
     delimitador = ""
     for i in range(vueltas):
@@ -290,9 +284,9 @@ def escitalaCod(texto,vueltas):
         pedazos = delimitador.join(texto1)
         matriz.append(pedazos)
     mensajeFinal = delimitador.join(matriz)
-    print("El mensaje encriptado es:", mensajeFinal)
+    print("El texto codificado con Escítala es:", mensajeFinal)
 
-def escitalaDec(texto,vueltas):
+def escitalaDec(texto, vueltas):
     texto = texto.replace(" ","")
     matriz= []
     mensajeFinal = []
@@ -309,9 +303,9 @@ def escitalaDec(texto,vueltas):
                 mensajeFinal.append(matriz[c][i])
         mensajeFinal = delimitador.join(mensajeFinal)
         mensajeFinal = mensajeFinal.replace("-"," ")       
-        print("El mensaje desencriptado es:", mensajeFinal)
+        print("El texto decodificado con Escítala es:", mensajeFinal)
     else:
-        print("El mensaje no puede descodificarse.")
+        print("El texto no puede descodificarse.")
 
 def valorarRestriccionesPalabra(palabra, decisión):
     if any(letra not in abecedario for letra in palabra):
@@ -322,7 +316,7 @@ def valorarRestriccionesTexto(texto, decisión):
         if any(letra not in abecedario + "123 " for letra in texto):
             raise Exception("El texto no puede tener símbolos o números diferentes a 1, 2 y 3.")
     if decisión in ("5", "6"):
-        if any(letra not in abecedario + "ABCDEFGHIJKLMNÑOPQRSTUVWXYZÁÉÍÓÚáéíóú- " for letra in texto):
+        if any(letra not in abecedario + "ABCDEFGHIJKLMNÑOPQRSTUVWXYZáéíóúÁÉÍÓÚ- " for letra in texto):
             raise Exception("El texto no puede tener símbolos ni números")
     else:
         if any(letra not in abecedario + " " for letra in texto):
@@ -432,7 +426,7 @@ def main():
                         raise Exception("El valor del desplazamiento debe ser un número entero.")
                 if decisión == "6":
                     try:
-                        vueltas = int(input("Ingrese la cantidad de vueltas: "))
+                        líneas = int(input("Ingrese la cantidad de vueltas: "))
                     except ValueError:
                         raise Exception("El valor de las vueltas debe ser un número entero.")
                 if opción == "1":
@@ -440,29 +434,29 @@ def main():
                         #Subrutina Codificación Cifrado César
                         cesarCod(texto, desplazamiento)
                     if decisión == "2":
-                        monoCod(texto,palabra)
+                        monoCod(texto, palabra)
                     if decisión == "3":
-                        vigenereCod(texto,palabra)
+                        vigenereCod(texto, palabra)
                     if decisión == "4":
                         playfairCod(texto, palabra)
                     if decisión == "5":
                         railfenceCod(texto)
                     if decisión == "6":
-                        escitalaCod(texto,vueltas)
+                        escitalaCod(texto, líneas)
                 if opción == "2":
                     if decisión == "1":
                         #Subrutina Decodificación Cifrado César
                         cesarDec(texto, desplazamiento)
                     if decisión == "2":
-                        monoDec(texto,palabra)
+                        monoDec(texto, palabra)
                     if decisión == "3":
-                        vigenereDec(texto,palabra)
+                        vigenereDec(texto, palabra)
                     if decisión == "4":
                         playfairDec(texto, palabra)
                     if decisión == "5":
                         railfenceDec(texto)
                     if decisión == "6":
-                        escitalaDec(texto,vueltas)
+                        escitalaDec(texto, líneas)
                 continuar = usarNuevamente(decisión)
             else:
                 continuar = False
