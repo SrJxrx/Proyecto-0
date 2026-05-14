@@ -278,13 +278,10 @@ def railfenceDec(texto):
     arriba = texto[:cantidad_arriba]
     medio = texto[cantidad_arriba : cantidad_arriba + cantidad_medio]
     abajo = texto[cantidad_arriba + cantidad_medio :]
-
     indice_arriba = 0
     indice_medio = 0
     indice_abajo = 0
-
     texto_descifrado = ""
-
     for posicion in range(distancia):
         posicion_cifrada = posicion % 4
         if posicion_cifrada == 0:
@@ -296,14 +293,10 @@ def railfenceDec(texto):
         elif posicion_cifrada == 2:
             texto_descifrado += abajo[indice_abajo]
             indice_abajo += 1
-
     texto_descifrado = texto_descifrado.replace("-", " ")
-
     while texto_descifrado[-1] == " ":
-
         texto_descifrado = texto_descifrado[:-1]
-
-    print("El texto decodificado con RailFence es:", texto_descifrado)
+    print("El texto decodificado con Cifrado RailFence es:", texto_descifrado)
 
 #Escitala codificación y decodificación.
 
@@ -403,7 +396,14 @@ def usarNuevamente(decisión):
 
 def main():
     """
-    Programa principal del Proyecto-0.
+    Programa principal de los tipos de cifrados
+    Entradas y restricciones:
+    - decisión: Elección de tipo de cifrado del usuario a utilizar: debe ser entero entre 1 y 7.
+    - opción: Elección del usuario para codificar o decodificar: debe ser entero entre 1 y 2.
+    - desplazamiento: Número de movimientos para el cifrado César: debe ser entero.
+    - líneas: Número de caras para la figura de Escítala: debe ser entero menor o igual a 2.
+    - texto: Mensaje que el usuario desea codificar o decodificar.
+    - palabra: Palabra clave que se utiliza en los cifrados
     """
     try:
         global abecedario
@@ -460,9 +460,11 @@ def main():
                         raise Exception("El valor del desplazamiento debe ser un número entero.")
                 if decisión == "6":
                     try:
-                        líneas = int(input("Ingrese la cantidad de vueltas: "))
+                        líneas = int(input("Ingrese la cantidad de caras que tiene la figura: "))
                     except ValueError:
                         raise Exception("El valor de las vueltas debe ser un número entero.")
+                        if líneas <= 1:
+                            raise Exception("El número de caras que debe tener la figura debe ser mínimo de 2 y no puede ser un número negativo.")
                 if opción == "1":
                     if decisión == "1":
                         #Subrutina Codificación Cifrado César
