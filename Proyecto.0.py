@@ -381,9 +381,13 @@ def prepararPalabra(clave):
 def usarNuevamente(decisión):
     """Función que le pregunta al usuario si desea utilizar de nuevo el programa. Sólo acepta "S" o "N" como respuesta.
     Entradas y restricciones:
-    - Ninguna.
+    - decisión: Elección de tipo de cifrado del usuario a utilizar: Sin restricciones.
     Salidas:
-    Retorna True si el usuario escribe "S", False si no."""
+    Retorna True si el usuario escribe "S", False si no.
+    Autores:
+    Jeremy Matarrita Hernández
+    Andrey Morales Reyes
+    Alexei Quesada Leandro"""
     print()
     respuesta = input(f"¿Desea utilizar de nuevo el programa?\nÚltimo tipo de cifrado utilizado:\
  {cifrado[int(decisión) - 1]}.\nIngrese (S/N) como respuesta: ")
