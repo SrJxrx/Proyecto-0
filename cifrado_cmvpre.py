@@ -420,7 +420,7 @@ def escitalaCod(texto, vueltas):
     Procedimiento que recibe el texto y lo codifica con el tipo de cifrado Escítala.
     Entradas y restricciones:
     - texto: Mensaje que el usuario desea codificar: Sin restricciones.
-    - vueltas: valor que define las caras maximas que el usuario desea: debe ser entero mayor a 1.
+    - vueltas: valor que define las caras maximas que el usuario desea: debe ser entero mayor o igual a 2.
     Salidas:
     - El texto codificado en cifrado Escítala.
     Autores:
@@ -449,7 +449,7 @@ def escitalaDec(texto, vueltas):
     Procedimiento que recibe el texto y lo decodifica con el tipo de cifrado Escítala.
     Entradas y restricciones:
     - texto: Mensaje que el usuario desea decodificar: el valor debe ser un múltiplo de vueltas.
-    - vueltas: Valor que define las caras máximas en las que el texto se dividió.
+    - vueltas: Valor que define las caras máximas en las que el texto se dividió: debe ser mayor o igual a 2.
     Salidas:
     - El texto decodificado en cifrado Escítala.
     Autores:
