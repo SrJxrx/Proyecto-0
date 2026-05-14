@@ -244,6 +244,26 @@ def playfairDec(decodificar, código):
 #Railfence codificación y decodificación.
 
 def railfenceCod(texto):
+     """
+    -Subrutina-
+    Codificación RailFencee
+    -Procedimiento-
+    Divide el texto en 3 partes y lo cifra con el abecedario especial segun la palabra,
+    luego lo une y lo separa en grupos de 5
+    -Entradas y Restricciones-
+    El texto: Sin restricciones 
+    
+    -Salidas-
+    El texto codificado en RailFence
+
+    -Autores-
+    
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes 
+    Alexei Quesada Leandro
+    
+    """
+
     arriba = ""
     medio = ""
     abajo = ""   
