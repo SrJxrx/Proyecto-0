@@ -289,6 +289,25 @@ def railfenceCod(texto):
     print("El texto codificado con Cifrado RailFence es:", cifrado_completo)
     
 def railfenceDec(texto):
+    """
+    -Subrutina-
+    Decodificación RailFencee
+    -Procedimiento-
+    deshace los grupos de 5, calcula las cantidades por línea, se separa en 3 lineas,
+    ,se reconstruye el zigzag del cifrado y se cambian las líneas por espacios
+    -Entradas y Restricciones-
+    El texto: Sin restricciones 
+    
+    -Salidas-
+    El texto decodificado en RailFence
+
+    -Autores-
+    
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes 
+    Alexei Quesada Leandro
+    
+    """
     texto = texto.replace(" ", "")
     distancia = len(texto)
     lineas = distancia // 4
