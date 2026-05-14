@@ -669,7 +669,6 @@ def main():
                             raise Exception("El número de caras que debe tener la figura debe ser mínimo de 2 y no puede ser un número negativo.")
                 if opción == "1":
                     if decisión == "1":
-                        #Subrutina Codificación Cifrado César
                         cesarCod(texto, desplazamiento)
                     if decisión == "2":
                         monoCod(texto, palabra)
@@ -683,7 +682,6 @@ def main():
                         escitalaCod(texto, líneas)
                 if opción == "2":
                     if decisión == "1":
-                        #Subrutina Decodificación Cifrado César
                         cesarDec(texto, desplazamiento)
                     if decisión == "2":
                         monoDec(texto, palabra)
