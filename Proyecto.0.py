@@ -269,7 +269,41 @@ def railfenceCod(texto):
     print("El texto codificado con Cifrado RailFence es:", cifrado_completo)
     
 def railfenceDec(texto):
-    print()
+    texto = texto.replace(" ", "")
+    distancia = len(texto)
+    lineas = distancia // 4
+    cantidad_arriba = lineas
+    cantidad_abajo = lineas
+    cantidad_medio = lineas * 2
+    arriba = texto[:cantidad_arriba]
+    medio = texto[cantidad_arriba : cantidad_arriba + cantidad_medio]
+    abajo = texto[cantidad_arriba + cantidad_medio :]
+
+    indice_arriba = 0
+    indice_medio = 0
+    indice_abajo = 0
+
+    texto_descifrado = ""
+
+    for posicion in range(distancia):
+        posicion_cifrada = posicion % 4
+        if posicion_cifrada == 0:
+            texto_descifrado += arriba[indice_arriba]
+            indice_arriba += 1
+        elif posicion_cifrada == 1 or posicion_cifrada == 3:
+            texto_descifrado += medio[indice_medio]
+            indice_medio += 1
+        elif posicion_cifrada == 2:
+            texto_descifrado += abajo[indice_abajo]
+            indice_abajo += 1
+
+    texto_descifrado = texto_descifrado.replace("-", " ")
+
+    while texto_descifrado[-1] == " ":
+
+        texto_descifrado = texto_descifrado[:-1]
+
+    print("El texto decodificado con RailFence es:", texto_descifrado)
 
 #Escitala codificación y decodificación.
 
