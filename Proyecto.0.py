@@ -1,4 +1,10 @@
+#Creadores:
+#Jeremy Matarrita Hernández 
+#Andrey Morales Reyes
+#Alexei Quesada Leandro
+
 #Variables globales(en el main con global)
+
 cifrado = ["Cifrado César", "Cifrado Monoalfabético", "Cifrado Vigenère", "Cifrado PlayFair modificado", "Cifrado Rail Fence", "Escítala"]
 abecedario = "abcdefghijklmnñopqrstuvwxyz"
 
@@ -117,6 +123,18 @@ def monoDec(texto, palabra):
 #Vigenere codificación y decodificación.
 
 def vigenereCod(texto,palabra):
+    """
+    Procedimiento que recibe el texto y lo codifica con el tipo de cifrado Vinegère por medio de la palabra clave.
+    Entradas y Restricciones:
+    - texto: Mensaje que el usuario desea decodificar: Sin restricciones.
+    - palabra: Palabra clave que se utiliza en la decodificación: Sin restricciones.
+    Salidas:
+    - El texto codificado en cifrado Vinegère.
+    Autores:
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes
+    Alexei Quesada Leandro
+    """
     texto = list(texto)
     palabra = list(palabra)
     cifrado = []
@@ -147,6 +165,18 @@ def vigenereCod(texto,palabra):
     print("El texto codificado con Cifrado Vigenère es:",mensajeFinal)
 
 def vigenereDec(texto,palabra):
+    """
+    Procedimiento que recibe el texto y lo decodifica con el tipo de cifrado Vinegère por medio de la palabra clave.
+    Entradas y Restricciones:
+    - texto: Mensaje que el usuario desea decodificar: Sin restricciones.
+    - palabra: Palabra clave que se utiliza en la decodificación: Sin restricciones.
+    Salidas:
+    - El texto decodificado en cifrado Vinegère.
+    Autores:
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes
+    Alexei Quesada Leandro
+    """
     texto = list(texto)
     palabra = list(palabra)
     cifrado = []
@@ -248,7 +278,7 @@ def playfairDec(decodificar, código):
     """
     Procedimiento que recibe el texto y lo decodifica con el tipo de cifrado PlayFair por medio de la palabra clave.
     Entradas y Restricciones:
-    - decodificar: Mensaje que el usuario desea decodificar: Sin restricciones.
+    - decodificar: Mensaje que el usuario desea decodificar: todas las palabras del texto deben tener una cantidad de letras par.
     - código: Palabra clave que se utiliza en la decodificación: Sin restricciones.
     Salidas:
     - El texto decodificado en cifrado PlayFair.
@@ -386,6 +416,18 @@ def railfenceDec(texto):
 #Escitala codificación y decodificación.
 
 def escitalaCod(texto, vueltas):
+    """
+    Procedimiento que recibe el texto y lo codifica con el tipo de cifrado Escítala.
+    Entradas y restricciones:
+    - texto: Mensaje que el usuario desea codificar: Sin restricciones.
+    - vueltas: valor que define las caras maximas que el usuario desea: debe ser entero mayor o igual a 2.
+    Salidas:
+    - El texto codificado en cifrado Escítala.
+    Autores:
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes
+    Alexei Quesada Leandro   
+    """
     texto = texto.replace(" ","-")
     while len(texto) % vueltas != 0:
         texto = texto +"-"
@@ -396,9 +438,25 @@ def escitalaCod(texto, vueltas):
         pedazos = delimitador.join(texto1)
         matriz.append(pedazos)
     mensajeFinal = delimitador.join(matriz)
+    mensajeSeparado = ""
+    for i in range(0, len(mensajeFinal), 5):
+        mensajeSeparado += mensajeFinal[i:i+5] + " "
+    mensajeFinal = mensajeSeparado
     print("El texto codificado con Escítala es:", mensajeFinal)
 
 def escitalaDec(texto, vueltas):
+    """
+    Procedimiento que recibe el texto y lo decodifica con el tipo de cifrado Escítala.
+    Entradas y restricciones:
+    - texto: Mensaje que el usuario desea decodificar: el valor debe ser un múltiplo de vueltas.
+    - vueltas: Valor que define las caras máximas en las que el texto se dividió: debe ser mayor o igual a 2.
+    Salidas:
+    - El texto decodificado en cifrado Escítala.
+    Autores:
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes 
+    Alexei Quesada Leandro   
+    """
     texto = texto.replace(" ","")
     matriz= []
     mensajeFinal = []
@@ -611,7 +669,6 @@ def main():
                             raise Exception("El número de caras que debe tener la figura debe ser mínimo de 2 y no puede ser un número negativo.")
                 if opción == "1":
                     if decisión == "1":
-                        #Subrutina Codificación Cifrado César
                         cesarCod(texto, desplazamiento)
                     if decisión == "2":
                         monoCod(texto, palabra)
@@ -625,7 +682,6 @@ def main():
                         escitalaCod(texto, líneas)
                 if opción == "2":
                     if decisión == "1":
-                        #Subrutina Decodificación Cifrado César
                         cesarDec(texto, desplazamiento)
                     if decisión == "2":
                         monoDec(texto, palabra)
