@@ -32,13 +32,13 @@ def cesarCod(codificar, movimiento):
 
 def cesarDec(decodificar, movimiento):
     """
-    Procedimiento que recibe el texto y lo codifica con el tipo de cifrado César por
+    Procedimiento que recibe el texto y lo decodifica con el tipo de cifrado César por
     medio de un desplazamiento de las letras del abecedario.
     Entradas y Restricciones:
-    - codificar: Mensaje que el usuario desea codificar: Sin restricciones.
+    - decodificar: Mensaje que el usuario desea decodificar: Sin restricciones.
     - movimiento: Número de letras desplazadas en el abecedario: Sin restricciones.
     Salidas:
-    - El texto codificado en cifrado César.
+    - El texto decodificado en cifrado César.
     Autores:
     Jeremy Matarrita Hernández 
     Andrey Morales Reyes
