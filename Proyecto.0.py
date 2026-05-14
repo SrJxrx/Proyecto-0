@@ -1,5 +1,3 @@
-#Enviar usuario/perfil de GitHub a maviles@itcr.cr
-
 #Variables globales(en el main con global)
 cifrado = ["Cifrado César", "Cifrado Monoalfabético", "Cifrado Vigenère", "Cifrado PlayFair modificado", "Cifrado Rail Fence", "Escítala"]
 abecedario = "abcdefghijklmnñopqrstuvwxyz"
@@ -193,17 +191,14 @@ def playfairCod(codificar, código):
     Andrey Morales Reyes
     Alexei Quesada Leandro
     """
-    #Preparación de palabra clave
     abecedario = "abcdefghijklmnñopqrstuvwxyz123"
     for letra in abecedario:
         if letra in código:
             abecedario = abecedario.replace(letra, "")
-    #Formación de matriz
     código += abecedario
     matriz = []
     for i in range(0, len(código), 5):
         matriz.append(list(código[i: i + 5]))
-    #Primeras fases de codificación del texto
     codificando = ""
     verificar = ""
     for letra in codificar:
@@ -215,7 +210,6 @@ def playfairCod(codificar, código):
     for i in range(0, len(codificando)):
         if len(codificando[i]) % 2 != 0:
             codificando[i] += "1"
-    #Separación de cada palabra del texto a codificar en dos letras (+ INFO TEMPORAL)
     codificación = []
     for i in range(0, len(codificando)):
         for j in range(0, len(codificando[i]), 2):
@@ -267,17 +261,14 @@ def playfairDec(decodificar, código):
     for i in range(0, len(decodificar)):
         if len(decodificar[i]) % 2 != 0:
             raise Exception("Todas las palabras del texto a decodificar deben tener una cantidad de letras par.")
-    #Preparación de palabra clave
     abecedario = "abcdefghijklmnñopqrstuvwxyz123"
     for letra in abecedario:
         if letra in código:
             abecedario = abecedario.replace(letra, "")
-    #Formación de matriz
     código += abecedario
     matriz = []
     for i in range(0, len(código), 5):
         matriz.append(list(código[i: i + 5]))
-    #Separación de cada palabra del texto a decodificar en dos letras
     decodificación = []
     for i in range(0, len(decodificar)):
         for j in range(0, len(decodificar[i]), 2):
