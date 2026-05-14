@@ -181,6 +181,18 @@ def vigenereDec(texto,palabra):
 #Playfair codificación y decodificación.
 
 def playfairCod(codificar, código):
+    """
+    Procedimiento que recibe el texto y lo codifica con el tipo de cifrado PlayFair por medio de la palabra clave.
+    Entradas y Restricciones:
+    - codificar: Mensaje que el usuario desea codificar: Sin restricciones.
+    - código: Palabra clave que se utiliza en la codificación: Sin restricciones.
+    Salidas:
+    - El texto codificado en cifrado PlayFair.
+    Autores:
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes
+    Alexei Quesada Leandro
+    """
     #Preparación de palabra clave
     abecedario = "abcdefghijklmnñopqrstuvwxyz123"
     for letra in abecedario:
@@ -239,6 +251,18 @@ def playfairCod(codificar, código):
     print("El texto codificado con Cifrado PlayFair es:", codificar)
 
 def playfairDec(decodificar, código):
+    """
+    Procedimiento que recibe el texto y lo decodifica con el tipo de cifrado PlayFair por medio de la palabra clave.
+    Entradas y Restricciones:
+    - decodificar: Mensaje que el usuario desea decodificar: Sin restricciones.
+    - código: Palabra clave que se utiliza en la decodificación: Sin restricciones.
+    Salidas:
+    - El texto decodificado en cifrado PlayFair.
+    Autores:
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes
+    Alexei Quesada Leandro
+    """
     decodificar = decodificar.split(" ")
     for i in range(0, len(decodificar)):
         if len(decodificar[i]) % 2 != 0:
