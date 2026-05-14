@@ -69,6 +69,25 @@ def monoCod(texto, palabra):
     print("El texto codificado con Cifrado Monoalfabético es: " + texto_cifrado)
 
 def monoDec(texto, palabra):
+    """
+    -Subrutina-
+    Decodificación monoalfabético con palabra clave
+    -Procedimiento-
+    se crea el abecedario cifrado segun la palabra clave, y luego el texto se cambia de posicion
+    numerica con del abecedario cifrado y el abecedario normal para crear el texto decifrado
+    -Entradas y Restricciones-
+    El texto: Sin restricciones 
+    
+    -Salidas-
+    El texto codificado en monoalfabético con palabra clave
+    
+    -Autores-
+    
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes 
+    Alexei Quesada Leandro
+    
+    """
     abecedario_cifrado = ""
     texto_descifrado = ""
     for letra in palabra:
