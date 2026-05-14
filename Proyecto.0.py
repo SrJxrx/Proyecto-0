@@ -31,6 +31,25 @@ def cesarDec(decodificar, movimiento):
 #Monoalfabetico codificación y decodificación.
 
 def monoCod(texto, palabra):
+    """
+    -Subrutina-
+    Codificación monoalfabético con palabra clave
+    -Procedimiento-
+    se crea el abecedario cifrado segun la palabra clave, y luego el texto se cambia de posicion
+    numerica con la del abecedario cifrado para crear el texto cifrado
+    -Entradas y Restricciones-
+    El texto: Sin restricciones 
+    
+    -Salidas-
+    El texto codificado en monoalfabético con palabra clave
+    
+    -Autores-
+    
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes 
+    Alexei Quesada Leandro
+    
+    """
     abecedario_cifrado = ""
     texto_cifrado = ""
     for letra in palabra:
