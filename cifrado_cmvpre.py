@@ -278,7 +278,7 @@ def playfairDec(decodificar, código):
     """
     Procedimiento que recibe el texto y lo decodifica con el tipo de cifrado PlayFair por medio de la palabra clave.
     Entradas y Restricciones:
-    - decodificar: Mensaje que el usuario desea decodificar: Sin restricciones.
+    - decodificar: Mensaje que el usuario desea decodificar: todas las palabras del texto deben tener una cantidad de letras par.
     - código: Palabra clave que se utiliza en la decodificación: Sin restricciones.
     Salidas:
     - El texto decodificado en cifrado PlayFair.
