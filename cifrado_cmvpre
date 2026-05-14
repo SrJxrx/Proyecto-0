@@ -1,4 +1,10 @@
+#Creadores:
+#Jeremy Matarrita Hernández 
+#Andrey Morales Reyes
+#Alexei Quesada Leandro
+
 #Variables globales(en el main con global)
+
 cifrado = ["Cifrado César", "Cifrado Monoalfabético", "Cifrado Vigenère", "Cifrado PlayFair modificado", "Cifrado Rail Fence", "Escítala"]
 abecedario = "abcdefghijklmnñopqrstuvwxyz"
 
