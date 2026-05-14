@@ -7,6 +7,19 @@ abecedario = "abcdefghijklmnñopqrstuvwxyz"
 #Cesar codificación y decodificación.
 
 def cesarCod(codificar, movimiento):
+    """
+    Procedimiento que recibe el texto y lo codifica con el tipo de cifrado César por
+    medio de un desplazamiento de las letras del abecedario.
+    Entradas y Restricciones:
+    - codificar: Mensaje que el usuario desea codificar: Sin restricciones.
+    - movimiento: Número de letras desplazadas en el abecedario: Sin restricciones.
+    Salidas:
+    - El texto codificado en cifrado César.
+    Autores:
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes
+    Alexei Quesada Leandro
+    """
     codificando = ""
     for letra in codificar:
         if letra != " ":
@@ -18,6 +31,19 @@ def cesarCod(codificar, movimiento):
     print("El texto codificado con Cifrado César es:", codificando)
 
 def cesarDec(decodificar, movimiento):
+    """
+    Procedimiento que recibe el texto y lo codifica con el tipo de cifrado César por
+    medio de un desplazamiento de las letras del abecedario.
+    Entradas y Restricciones:
+    - codificar: Mensaje que el usuario desea codificar: Sin restricciones.
+    - movimiento: Número de letras desplazadas en el abecedario: Sin restricciones.
+    Salidas:
+    - El texto codificado en cifrado César.
+    Autores:
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes
+    Alexei Quesada Leandro
+    """
     decodificando = ""
     for letra in decodificar:
         if letra != " ":
@@ -32,23 +58,16 @@ def cesarDec(decodificar, movimiento):
 
 def monoCod(texto, palabra):
     """
-    -Subrutina-
-    Codificación monoalfabético con palabra clave
-    -Procedimiento-
-    se crea el abecedario cifrado segun la palabra clave, y luego el texto se cambia de posicion
-    numerica con la del abecedario cifrado para crear el texto cifrado
-    -Entradas y Restricciones-
-    El texto: Sin restricciones 
-    
-    -Salidas-
-    El texto codificado en monoalfabético con palabra clave
-    
-    -Autores-
-    
+    Procedimiento que recibe el texto y lo codifica con el tipo de cifrado monoalfabético por medio de la palabra clave.
+    Entradas y Restricciones:
+    - texto: Mensaje que el usuario desea codificar: Sin restricciones.
+    - palabra: Palabra clave que se utiliza en la codificación: Sin restricciones.
+    Salidas:
+    - El texto codificado en cifrado monoalfabético.
+    Autores:
     Jeremy Matarrita Hernández 
-    Andrey Morales Reyes 
+    Andrey Morales Reyes
     Alexei Quesada Leandro
-    
     """
     abecedario_cifrado = ""
     texto_cifrado = ""
@@ -57,8 +76,7 @@ def monoCod(texto, palabra):
             abecedario_cifrado+=letra
     for letra in abecedario:
         if letra not in abecedario_cifrado:
-            abecedario_cifrado+=letra
-                 
+            abecedario_cifrado+=letra                
     for letra in texto:
         if letra == " ":
             texto_cifrado+= " "
@@ -70,23 +88,16 @@ def monoCod(texto, palabra):
 
 def monoDec(texto, palabra):
     """
-    -Subrutina-
-    Decodificación monoalfabético con palabra clave
-    -Procedimiento-
-    se crea el abecedario cifrado segun la palabra clave, y luego el texto se cambia de posicion
-    numerica con del abecedario cifrado y el abecedario normal para crear el texto decifrado
-    -Entradas y Restricciones-
-    El texto: Sin restricciones 
-    
-    -Salidas-
-    El texto codificado en monoalfabético con palabra clave
-    
-    -Autores-
-    
+    Procedimiento que recibe el texto y lo decodifica con el tipo de cifrado monoalfabético por medio de la palabra clave.
+    Entradas y Restricciones:
+    - texto: Mensaje que el usuario desea decodificar: Sin restricciones.
+    - palabra: Palabra clave que se utiliza en la decodificación: Sin restricciones.
+    Salidas:
+    - El texto decodificado en cifrado monoalfabético.
+    Autores:
     Jeremy Matarrita Hernández 
-    Andrey Morales Reyes 
+    Andrey Morales Reyes
     Alexei Quesada Leandro
-    
     """
     abecedario_cifrado = ""
     texto_descifrado = ""
@@ -95,8 +106,7 @@ def monoDec(texto, palabra):
             abecedario_cifrado+=letra
     for letra in abecedario:
         if letra not in abecedario_cifrado:
-            abecedario_cifrado+=letra
-                     
+            abecedario_cifrado+=letra                     
     for letra in texto:
         if letra == " ":
             texto_descifrado+= " "
@@ -282,26 +292,17 @@ def playfairDec(decodificar, código):
 #Railfence codificación y decodificación.
 
 def railfenceCod(texto):
-     """
-    -Subrutina-
-    Codificación RailFencee
-    -Procedimiento-
-    Divide el texto en 3 partes y lo cifra con el abecedario especial segun la palabra,
-    luego lo une y lo separa en grupos de 5
-    -Entradas y Restricciones-
-    El texto: Sin restricciones 
-    
-    -Salidas-
-    El texto codificado en RailFence
-
-    -Autores-
-    
-    Jeremy Matarrita Hernández 
-    Andrey Morales Reyes 
-    Alexei Quesada Leandro
-    
     """
-
+    Procedimiento que recibe el texto y lo codifica con el tipo de cifrado Rail Fence.
+    Entradas y restricciones:
+    - texto: Mensaje que el usuario desea codificar: Sin restricciones.
+    Salidas:
+    - El texto codificado en cifrado RailFence.
+    Autores:
+    Jeremy Matarrita Hernández 
+    Andrey Morales Reyes
+    Alexei Quesada Leandro   
+    """
     arriba = ""
     medio = ""
     abajo = ""   
@@ -328,23 +329,15 @@ def railfenceCod(texto):
     
 def railfenceDec(texto):
     """
-    -Subrutina-
-    Decodificación RailFencee
-    -Procedimiento-
-    deshace los grupos de 5, calcula las cantidades por línea, se separa en 3 lineas,
-    ,se reconstruye el zigzag del cifrado y se cambian las líneas por espacios
-    -Entradas y Restricciones-
-    El texto: Sin restricciones 
-    
-    -Salidas-
-    El texto decodificado en RailFence
-
-    -Autores-
-    
+    Procedimiento que recibe el texto y lo decodifica con el tipo de cifrado Rail Fence.
+    Entradas y restricciones:
+    - texto: Mensaje que el usuario desea decodificar: Sin restricciones.
+    Salidas:
+    - El texto decodificado en cifrado RailFence.
+    Autores:
     Jeremy Matarrita Hernández 
     Andrey Morales Reyes 
-    Alexei Quesada Leandro
-    
+    Alexei Quesada Leandro   
     """
     texto = texto.replace(" ", "")
     distancia = len(texto)
@@ -412,10 +405,36 @@ def escitalaDec(texto, vueltas):
         print("El texto no puede descodificarse.")
 
 def valorarRestriccionesPalabra(palabra, decisión):
-    if type(palabra) != str or any(letra not in abecedario for letra in palabra):
+    """Procedimiento que recibe la palabra clave para codificar o decodificar y evalúa sus restricciones.
+    Entradas y restricciones:
+    - decisión: Elección de tipo de cifrado del usuario a utilizar: Sin restricciones.
+    - palabra: Palabra clave que se utiliza en el cifrado Monoalfabético, Vigenère, y PlayFair
+    para la codificación y decodificación del texto: debe ser un conjunto de letras sin números, símbolos ni espacios.
+    Salidas:
+    - Ninguna.
+    Autores:
+    Jeremy Matarrita Hernández
+    Andrey Morales Reyes
+    Alexei Quesada Leandro"""
+    if any(letra not in abecedario for letra in palabra):
         raise Exception("La palabra clave no puede tener números, símbolos ni espacios.")
 
 def valorarRestriccionesTexto(texto, decisión):
+    """Procedimiento que recibe el texto a codificar o decodificar y evalúa sus restricciones
+    dependiendo del tipo de cifrado que se va a utilizar.
+    Entradas y restricciones:
+    - decisión: Elección de tipo de cifrado del usuario a utilizar: Sin restricciones.
+    - texto: Mensaje que el usuario desea codificar o decodificar.
+    Restricciones texto:
+    Para el tipo de cifrado PlayFair debe ser un conjunto de letras sin tildes, símbolos, mayúsculas y sin números diferentes a 1, 2 y 3.
+    Para el cifrado Rail Fence y Escítala debe ser un conjunto de letras sin símbolos ni números.
+    Para el cifrado César, Monoalfabético y Vigenère debe ser un conjunto de letras sin tildes, símbolos, mayúsculas ni números.
+    Salidas:
+    - Ninguna.
+    Autores:
+    Jeremy Matarrita Hernández
+    Andrey Morales Reyes
+    Alexei Quesada Leandro"""
     if decisión == "4":
         if any(letra not in abecedario + "123 " for letra in texto):
             raise Exception("El texto no puede tener símbolos o números diferentes a 1, 2 y 3.")
@@ -432,7 +451,7 @@ def prepararTexto(frase, decisión):
     - decisión: Elección de tipo de cifrado del usuario a utilizar: Sin restricciones.
     - frase: Mensaje que el usuario desea codificar o decodificar: debe ser un conjunto de letras.
     Salidas:
-    Retorna el texto sin tildes y mayúsculas para los tipos de cifrados
+    - Retorna el texto sin tildes y mayúsculas para los tipos de cifrados
     que lo necesitan y elimina espacios extra en el texto.
     Autores:
     Jeremy Matarrita Hernández
@@ -458,6 +477,17 @@ def prepararTexto(frase, decisión):
     return texto
 
 def prepararPalabra(clave):
+    """Función que prepara la palabra clave para codificar o decodificar.
+    Entradas y restricciones:
+    - clave: Palabra clave que se utiliza en el cifrado Monoalfabético, Vigenère, y PlayFair
+    para la codificación y decodificación del texto: debe ser un conjunto de letras.
+    Salidas:
+    - Retorna la palabra clave sin mayúsculas para los tipos de cifrados
+    que la necesitan
+    Autores:
+    Jeremy Matarrita Hernández
+    Andrey Morales Reyes
+    Alexei Quesada Leandro"""
     if type(clave) != str:
         raise Exception("El texto debe ser un string.")
     código = ""
@@ -471,7 +501,7 @@ def usarNuevamente(decisión):
     Entradas y restricciones:
     - decisión: Elección de tipo de cifrado del usuario a utilizar: Sin restricciones.
     Salidas:
-    Retorna True si el usuario escribe "S", False si no.
+    - Retorna True si el usuario escribe "S", False si no.
     Autores:
     Jeremy Matarrita Hernández
     Andrey Morales Reyes
@@ -498,7 +528,7 @@ def main():
     - palabra: Palabra clave que se utiliza en el cifrado Monoalfabético, Vigenère, y PlayFair
     para la codificación y decodificación del texto: debe ser un conjunto de letras.
     Salidas:
-    Mensaje final al dejar de utilizar el programa.
+    - Mensaje final al dejar de utilizar el programa.
     Autores:
     Jeremy Matarrita Hernández
     Andrey Morales Reyes
