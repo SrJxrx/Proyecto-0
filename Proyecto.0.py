@@ -335,7 +335,7 @@ def escitalaDec(texto, vueltas):
         print("El texto no puede descodificarse.")
 
 def valorarRestriccionesPalabra(palabra, decisión):
-    if any(letra not in abecedario for letra in palabra):
+    if type(palabra) != str or any(letra not in abecedario for letra in palabra):
         raise Exception("La palabra clave no puede tener números, símbolos ni espacios.")
 
 def valorarRestriccionesTexto(texto, decisión):
@@ -350,6 +350,17 @@ def valorarRestriccionesTexto(texto, decisión):
             raise Exception("El texto no puede tener símbolos ni números")
 
 def prepararTexto(frase, decisión):
+    """Función que prepara el texto a codificar o decodificar.
+    Entradas y restricciones:
+    - decisión: Elección de tipo de cifrado del usuario a utilizar: Sin restricciones.
+    - frase: Mensaje que el usuario desea codificar o decodificar: debe ser un conjunto de letras.
+    Salidas:
+    Retorna el texto sin tildes y mayúsculas para los tipos de cifrados
+    que lo necesitan y elimina espacios extra en el texto.
+    Autores:
+    Jeremy Matarrita Hernández
+    Andrey Morales Reyes
+    Alexei Quesada Leandro"""
     if decisión not in ("5", "6"):
         while frase[-1] == " ":
             frase = frase[: -1]
@@ -406,9 +417,9 @@ def main():
     - opción: Elección del usuario para codificar o decodificar: debe ser entero entre 1 y 2.
     - desplazamiento: Número de movimientos para el cifrado César: debe ser entero.
     - líneas: Número de caras para la figura de Escítala: debe ser entero menor o igual a 2.
-    - texto: Mensaje que el usuario desea codificar o decodificar: Sin restricciones.
+    - texto: Mensaje que el usuario desea codificar o decodificar: debe ser un conjunto de letras.
     - palabra: Palabra clave que se utiliza en el cifrado Monoalfabético, Vigenère, y PlayFair
-    para la codificación y decodificación del texto: Sin restricciones.
+    para la codificación y decodificación del texto: debe ser un conjunto de letras.
     Salidas:
     Mensaje final al dejar de utilizar el programa.
     Autores:
